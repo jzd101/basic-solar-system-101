@@ -1,16 +1,39 @@
-# React + Vite
+# Solar System Simulation
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a simple 3D Solar System simulation built with React and Three.js (via @react-three/fiber). It allows you to explore the planets, control the orbit speed, and adjust the scene brightness.
 
-Currently, two official plugins are available:
+## Features and Changes
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Interactive 3D Solar System**: View the Sun and planets orbiting around it.
+- **Orbit Controls**: Pan, zoom, and rotate the camera to view the system from different angles.
+- **Focus Mode**: Click on any planet to focus the camera on it.
+- **Orbit Speed Adjustment**: Use the "Orbit Speed" slider to speed up, slow down, or pause the orbital simulation.
+- **Brightness Adjustment**: Use the new "Brightness" slider to adjust the ambient light level, allowing for better visibility of planet textures and details.
 
-## React Compiler
+## Prerequisites and How to Use
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Prerequisites
 
-## Expanding the ESLint configuration
+- **Node.js**: Ensure you have Node.js installed (version 14 or higher recommended).
+- **npm**: Usually comes with Node.js.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### How to Use
+
+1.  **Clone the repository** (if applicable).
+2.  **Install dependencies**:
+    Run the following command in the project root directory:
+    ```bash
+    npm install
+    ```
+3.  **Run the development server**:
+    Start the local server with:
+    ```bash
+    npm run dev
+    ```
+4.  **Open in Browser**:
+    Click the link provided in the terminal (usually `http://localhost:5173`) to view the application.
+
+## Preview Site
+
+You can view the live preview of the project here:
+[https://basic-web-101-oxh9.vercel.app/](https://basic-web-101-oxh9.vercel.app/)

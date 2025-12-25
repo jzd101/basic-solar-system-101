@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Canvas, useThree } from '@react-three/fiber';
 import { OrbitControls, Stars, PerspectiveCamera } from '@react-three/drei';
 import { Sun } from './components/Sun';
@@ -19,8 +19,7 @@ const planetsData = [
 ];
 
 const CameraController = ({ focusTarget }) => {
-  const { camera, controls } = useThree();
-  const vec = new THREE.Vector3();
+  const { controls } = useThree();
 
   useEffect(() => {
     if (focusTarget) {
@@ -41,10 +40,10 @@ const CameraController = ({ focusTarget }) => {
   return null;
 };
 
-const SolarSystem = ({ speedMultiplier, onFocus }) => {
+const SolarSystem = ({ speedMultiplier, onFocus, brightness }) => {
   return (
     <>
-      <ambientLight intensity={0.1} />
+      <ambientLight intensity={brightness} />
       <Sun />
       {planetsData.map((planet) => (
         <Planet
@@ -66,6 +65,7 @@ const SolarSystem = ({ speedMultiplier, onFocus }) => {
 
 function App() {
   const [speedMultiplier, setSpeedMultiplier] = useState(1);
+  const [brightness, setBrightness] = useState(0.5);
   const [focusTarget, setFocusTarget] = useState(null);
 
   return (
@@ -73,7 +73,7 @@ function App() {
       <Canvas camera={{ position: [0, 20, 45], fov: 45 }}>
         <CameraController focusTarget={focusTarget} />
         <OrbitControls enablePan={true} enableZoom={true} enableRotate={true} />
-        <SolarSystem speedMultiplier={speedMultiplier} onFocus={setFocusTarget} />
+        <SolarSystem speedMultiplier={speedMultiplier} brightness={brightness} onFocus={setFocusTarget} />
       </Canvas>
 
       {/* UI Overlay */}
@@ -92,18 +92,34 @@ function App() {
          <p style={{ fontSize: '0.8rem', margin: '0 0 10px 0' }}>คลิกที่ดาวเพื่อโฟกัส (Click planet to focus)</p>
 
          <div style={{ pointerEvents: 'auto' }}>
-            <label htmlFor="speed">ความเร็วโคจร (Orbit Speed): {speedMultiplier.toFixed(1)}x</label>
-            <br />
-            <input
-              id="speed"
-              type="range"
-              min="0"
-              max="5"
-              step="0.1"
-              value={speedMultiplier}
-              onChange={(e) => setSpeedMultiplier(parseFloat(e.target.value))}
-              style={{ width: '100%' }}
-            />
+            <div style={{ marginBottom: '10px' }}>
+              <label htmlFor="speed">ความเร็วโคจร (Orbit Speed): {speedMultiplier.toFixed(1)}x</label>
+              <br />
+              <input
+                id="speed"
+                type="range"
+                min="0"
+                max="5"
+                step="0.1"
+                value={speedMultiplier}
+                onChange={(e) => setSpeedMultiplier(parseFloat(e.target.value))}
+                style={{ width: '100%' }}
+              />
+            </div>
+            <div>
+              <label htmlFor="brightness">ความสว่าง (Brightness): {brightness.toFixed(1)}</label>
+              <br />
+              <input
+                id="brightness"
+                type="range"
+                min="0"
+                max="2"
+                step="0.1"
+                value={brightness}
+                onChange={(e) => setBrightness(parseFloat(e.target.value))}
+                style={{ width: '100%' }}
+              />
+            </div>
          </div>
       </div>
 
