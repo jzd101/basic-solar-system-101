@@ -36,4 +36,4 @@ This project is a simple 3D Solar System simulation built with React and Three.j
 ## Preview Site
 
 You can view the live preview of the project here:
-[https://basic-web-101-oxh9.vercel.app/](https://basic-web-101-oxh9.vercel.app/)
+[[https://basic-web-101-oxh9.vercel.app/](https://basic-solar-system-101.vercel.app/)](https://basic-solar-system-101.vercel.app/)
